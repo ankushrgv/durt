@@ -1,26 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react/jsx-filename-extension */
+import React, { PureComponent } from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  faBook,
+  faCat,
+  faChartArea,
+  faClipboard,
+  faFileSignature,
+  faHome,
+  faImages,
+  faUsers,
+  faClock,
+  faUserEdit,
+  faUserFriends
+} from "@fortawesome/free-solid-svg-icons";
+// import "./Styles/App.css";
+import MainApp from "./mainApp";
+
+// Import fonts required
+
+library.add(
+  faBook,
+  faCat,
+  faChartArea,
+  faClipboard,
+  faFileSignature,
+  faHome,
+  faImages,
+  faUsers,
+  faClock,
+  faUserEdit,
+  faUserFriends
+);
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      "Nunito",
+      "Roboto",
+      "\"Helvetica Neue\"",
+      "Arial",
+      "sans-serif"
+    ].join(",")
+  },
+  palette: {
+    primary: {
+      light: "#2196f3",
+      main: "#1565c0",
+      dark: "#0d47a1",
+      contrastText: "#fff"
+    },
+    secondary: {
+      light: "#ec407a",
+      main: "#d81b60",
+      dark: "#880e4f",
+      contrastText: "#fff"
+    }
+  }
+});
+
+class App extends PureComponent {
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <MainApp />
+        </div>
+      </ThemeProvider>
+    );
+  }
 }
 
 export default App;
