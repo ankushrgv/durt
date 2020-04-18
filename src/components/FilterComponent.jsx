@@ -9,9 +9,14 @@ export default class FilterComponent extends Component {
         let {name,  handleFilterChange} = this.props
         let filterPlainList = []
         if (selectedFilters){
-            selectedFilters.forEach(filter => {
-                filterPlainList.push(filter.value)
-            })
+            if (name === "symbolList") {
+                filterPlainList.push(selectedFilters.value)
+            }
+            else {
+                selectedFilters.forEach(filter => {
+                    filterPlainList.push(filter.value)
+                })
+            }
         }
         handleFilterChange(name, filterPlainList)
     }
