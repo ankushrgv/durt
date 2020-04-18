@@ -69,7 +69,7 @@ export default class Filters extends Component {
                 }
                 <Grid item xs>
                     <Button variant="contained" color="secondary" disableElevation
-                        disabled={buttonDisable}
+                        // disabled={buttonDisable}
                         onClick={this.onFilterSubmit}
                     >
                         Apply

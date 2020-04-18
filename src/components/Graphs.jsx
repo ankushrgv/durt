@@ -23,7 +23,7 @@ export default class Graphs extends Component {
             <Grid
                 className="all-teams-list"
                 container
-                direction="row"
+                direction="column"
                 justify="space-between"
                 alignItems="center"
             >

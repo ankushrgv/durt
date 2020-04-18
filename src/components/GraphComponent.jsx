@@ -10,7 +10,8 @@ export default class GraphComponent extends Component {
 
         let graphConf = {
             chart: {
-                type: 'column'
+                type: 'column',
+                height: 600
               },
               title: {
                 text: ''
