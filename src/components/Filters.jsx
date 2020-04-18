@@ -12,10 +12,7 @@ export default class Filters extends Component {
         "expiryDateList": []
     }
     
-    onFilterChange = (filterName, filterValue) => {
-        console.log("fname = ", filterName)
-        console.log("fval = ", filterValue)
-        
+    onFilterChange = (filterName, filterValue) => {        
         this.setState({
             [filterName]: filterValue
         })
@@ -53,14 +50,13 @@ export default class Filters extends Component {
 
     render() {
         const {symbolList, instrumentList, expiryDateList} = this.state;
-        console.log(symbolList.length, instrumentList.length, expiryDateList.length)
+        const { buttonDisabled } = this.props;
+
         let buttonDisable = true;
 
-        if (symbolList.length > 0 && instrumentList.length > 0 && expiryDateList.length > 0) {
+        if (!buttonDisabled && symbolList.length > 0 && instrumentList.length > 0 && expiryDateList.length > 0) {
             buttonDisable = false;
-            console.log("here!!")
         }
-        console.log(buttonDisable)
         return (
             <Grid container
                 direction="row"

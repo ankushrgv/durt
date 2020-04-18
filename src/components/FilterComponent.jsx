@@ -18,6 +18,10 @@ export default class FilterComponent extends Component {
 
     render() {
         const {name, options} = this.props;
+        let isMultiSelect = true;
+        if(name === "symbolList") {
+            isMultiSelect = false
+        }
         
         return (
             <Grid item xs>
@@ -27,7 +31,7 @@ export default class FilterComponent extends Component {
 
                 <Select
                     className="filter-select"
-                    isMulti
+                    isMulti={isMultiSelect}
                     closeMenuOnSelect={false}
                     options={options}
                     onChange={this.onFilterChange}

@@ -3,9 +3,22 @@ import { Grid } from '@material-ui/core';
 import GraphComponent from './GraphComponent';
 
 export default class Graphs extends Component {
-   render() {
-        const {graphData} = this.props;
 
+    renderGraphs() {
+        const {graphData} = this.props;
+        let graphList = []
+
+        graphData.forEach(graph => {
+            graphList.push(
+                <Grid item className="list-column" key={graph.id}>
+                    <GraphComponent graph={graph} />
+                </Grid>
+            )
+        })
+        return graphList
+    }
+
+    render() {
         return (
             <Grid
                 className="all-teams-list"
@@ -14,13 +27,7 @@ export default class Graphs extends Component {
                 justify="space-between"
                 alignItems="center"
             >
-                {
-                    graphData.map((graph) => {
-                        return <Grid item className="list-column" key={graph.id}>
-                                <GraphComponent graph={graph} />
-                            </Grid>
-                    })
-                }
+                { this.renderGraphs()}
             </Grid>
         )
     }
